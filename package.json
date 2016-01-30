@@ -16,7 +16,7 @@
     "benchmark"
   ],
   "dependencies": {
-    "preact": "^2.7.3"
+    "preact": "^2.8.2"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
