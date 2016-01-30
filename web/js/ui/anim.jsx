@@ -13,7 +13,7 @@ class AnimBox extends Component {
       'background': 'rgba(0,0,0,' + (0.5 + ((time % 10) /10)).toString() + ')'
     };
 
-    return <div className="AnimBox" data-id={data.id} style={style} />;
+    return <div class="AnimBox" data-id={data.id} style={style} />;
   }
 }
 
@@ -29,9 +29,9 @@ export class Anim extends Component {
     var children = [];
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
-      children.push((<AnimBox key={item.id} data={item} />));
+      children.push((<AnimBox data={item} />));
     }
 
-    return (<div className="Anim">{children}</div>);
+    return (<div class="Anim">{children}</div>);
   }
 }

@@ -16,7 +16,7 @@ class TableCell extends Component {
   }
 
   render() {
-    return (<td className="TableCell" onClick={this.onClick}>{this.props.text}</td>);
+    return (<td class="TableCell" onClick={this.onClick}>{this.props.text}</td>);
   }
 }
 
@@ -33,12 +33,12 @@ class TableRow extends Component {
     }
     var cells = data.props;
 
-    var children = [(<TableCell key="-1" text={'#' + data.id}></TableCell>)];
+    var children = [(<TableCell text={'#' + data.id}></TableCell>)];
     for (var i = 0; i < cells.length; i++) {
-      children.push((<TableCell key={i} text={cells[i]}></TableCell>));
+      children.push((<TableCell text={cells[i]}></TableCell>));
     }
 
-    return (<tr className={classes} data-id={data.id}>{children}</tr>);
+    return (<tr class={classes} data-id={data.id}>{children}</tr>);
   }
 }
 
@@ -53,9 +53,9 @@ export class Table extends Component {
     var children = [];
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
-      children.push((<TableRow key={item.id} data={item} />));
+      children.push((<TableRow data={item} />));
     }
 
-    return (<table className="Table"><tbody>{children}</tbody></table>);
+    return (<table class="Table"><tbody>{children}</tbody></table>);
   }
 }

@@ -21,6 +21,6 @@ export class Main extends Component {
       section = (<Tree data={data.tree}></Tree>);
     }
 
-    return (<div className="Main">{section}</div>);
+    return (<div class="Main">{section}</div>);
   }
 }
