@@ -5,6 +5,9 @@
   "description": "UI Benchmark: Preact",
   "homepage": "https://github.com/localvoid/uibench-preact",
   "repository": "https://github.com/localvoid/uibench-preact",
+  "scripts": {
+    "build": "gulp"
+  },
   "author": {
     "name": "Boris Kaul",
     "email": "localvoid@gmail.com",
@@ -16,7 +19,7 @@
     "benchmark"
   ],
   "dependencies": {
-    "preact": "^2.8.2"
+    "preact": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
