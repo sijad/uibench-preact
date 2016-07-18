@@ -5,8 +5,8 @@ class TreeLeaf extends Component {
     return this.props.data !== nextProps.data;
   }
 
-  render() {
-    return (<li class="TreeLeaf">{this.props.data.id}</li>);
+  render(props) {
+    return (<li class="TreeLeaf">{props.data.id}</li>);
   }
 }
 
@@ -15,16 +15,16 @@ class TreeNode extends Component {
     return this.props.data !== nextProps.data;
   }
 
-  render() {
-    var data = this.props.data;
+  render(props) {
+    var data = props.data;
     var children = [];
 
     for (var i = 0; i < data.children.length; i++) {
       var n = data.children[i];
       if (n.container) {
-        children.push((<TreeNode data={n} />));
+        children.push((<TreeNode key={n.id} data={n} />));
       } else {
-        children.push((<TreeLeaf data={n} />));
+        children.push((<TreeLeaf key={n.id} data={n} />));
       }
     }
 
@@ -37,7 +37,7 @@ export class Tree extends Component {
     return this.props.data !== nextProps.data;
   }
 
-  render() {
-    return (<div class="Tree"><TreeNode data={this.props.data.root} /></div>);
+  render(props) {
+    return (<div class="Tree"><TreeNode data={props.data.root} /></div>);
   }
 }

@@ -1,17 +1,18 @@
 import { h, render } from 'preact';
 import { Main } from './ui/main';
 
-uibench.init('Preact', '3.2.0');
+uibench.init('Preact', '5.3.1');
 
-document.addEventListener('DOMContentLoaded', function(e) {
-  var container = document.querySelector('#App');
+document.addEventListener('DOMContentLoaded', (e) => {
+  var container = document.querySelector('#App'),
+    root;
 
   uibench.run(
-      function(state) {
-        render(<Main data={state}/>, container, container.firstChild);
+      (state) => {
+        root = render(<Main data={state}/>, container, root);
       },
-      function(samples) {
-        render(<pre>{JSON.stringify(samples, null, ' ')}</pre>, container, container.firstChild);
+      (samples) => {
+        root = render(<pre>{JSON.stringify(samples, null, ' ')}</pre>, container, root);
       }
   );
 });

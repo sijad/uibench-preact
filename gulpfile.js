@@ -11,7 +11,8 @@ gulp.task('html', function() {
 
 gulp.task('build', function(callback) {
   var cfg = {
-    entry: ['./web/js/main.jsx'],
+    // entry: ['./web/js/main.jsx'],
+    entry: ['./web/js/dev.jsx'],
     output: {
       path: path.join(__dirname, 'build'),
       filename: 'bundle.js'
@@ -22,15 +23,29 @@ gulp.task('build', function(callback) {
     module: {
       loaders: [{
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        loaders: ['babel?{ "presets": ["es2015-loose", "stage-0"], "plugins": [["transform-react-jsx", {"pragma": "h"}]] }']
+        // exclude: /(node_modules)/,
+        include: __dirname+'/web/js',
+        loaders: ['babel?{ "presets": ["es2015-loose", "react"], "plugins": [["transform-react-jsx", {"pragma": "h"}]] }']
       }]
+    },
+    node: {
+        console: false,
+        global: false,
+        process: false,
+        Buffer: false,
+        __filename: false,
+        __dirname: false,
+        setImmediate: false
     },
     plugins: [
       new webpack.NoErrorsPlugin(),
       new webpack.DefinePlugin({'process.env': {NODE_ENV: JSON.stringify('production')}}),
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin()
+      new webpack.optimize.UglifyJsPlugin({
+          mangle: {
+              keep_fnames: true
+          }
+      })
     ]
   };
 

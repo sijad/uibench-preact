@@ -22,16 +22,15 @@ export class Anim extends Component {
     return this.props.data !== nextProps.data;
   }
 
-  render() {
-    var data = this.props.data;
+  render(props) {
+    var data = props.data;
     var items = data.items;
 
     var children = [];
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
-      children.push((<AnimBox data={item} />));
+      children.push((<AnimBox key={item.id} data={item} />));
     }
 
-    return (<div class="Anim">{children}</div>);
-  }
+    return (<div class="Anim">{children}</div>);  }
 }
